@@ -1,43 +1,85 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Alvarez Lujan 0310'),
+        ),
+        body: Center(
+          child: ContainerColumn(),
+        ),
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
+class ContainerColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+    return Column(
+      mainAxisSize: MainAxisSize.min, // To center the Column vertically
+      children: [
+        Container(
+          color: Colors.red,
+          child: Center(
+            child: Text('color property'),
+          ),
+          height: 100,
+          width: 250,
         ),
-      ),
+        SizedBox(height: 10), // Optional: Add spacing between containers
+        Container(
+          color: Color(0xffecafc3),
+          child: Center(
+            child: Text('hex color mode'),
+          ),
+          height: 100,
+          width: 250,
+        ),
+        SizedBox(height: 10),
+        Container(
+          color: Colors.grey,
+          child: Center(
+            child: Text(
+              'color with opacity',
+            ),
+          ),
+          height: 100,
+          width: 250,
+        ),
+        SizedBox(height: 10),
+        Container(
+          color: Colors.yellow,
+          child: Center(
+            child: Text('decoration property'),
+          ),
+          height: 100,
+          width: 250,
+        ),
+        SizedBox(height: 10),
+        Container(
+          child: Center(
+            child: Text('gradient color'),
+          ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.cyanAccent],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          height: 100,
+          width: 250,
+        ),
+      ],
     );
   }
 }
